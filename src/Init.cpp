@@ -1569,6 +1569,15 @@ void Init::setColorChargeDensity(Lattice *lat, Parameters *param,
         fout1 << "using fixed coupling alpha_s=" << param->getalphas() << endl;
       fout1.close();
     }
+
+    stringstream strImpact_name;
+    strImpact_name << "ImpactParameter" << param->getEventId() << ".dat";
+    string Impact_name;
+    Impact_name = strImpact_name.str();
+
+    ofstream foutImpact(Impact_name.c_str(), ios::out);
+    foutImpact << b << " " << b << " " << b << endl;
+  
   if ( averageQs2min2 * a * a / hbarc / hbarc < param->getMinimumQs2ST()) 
     cout << " **** Rejected event - Qsmin^2 S_T=" << averageQs2min2 * a * a / hbarc / hbarc << " too small ( < " << param->getMinimumQs2ST() << ")." << endl;
 
